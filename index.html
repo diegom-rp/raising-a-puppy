@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Raise a Dog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #92400e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .image-container {
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-container img {
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        .pulse-subtle {
+            animation: pulse-subtle 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-stone-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4">
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <h1 class="text-xl font-semibold text-stone-800">How to <del class="text-stone-400">Train</del> Raise a Dog</h1>
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <a href="#prep" class="nav-link text-stone-600 hover:text-stone-900">Prep</a>
+                    <a href="#home" class="nav-link text-stone-600 hover:text-stone-900">Bringing Home</a>
+                    <a href="#feeding" class="nav-link text-stone-600 hover:text-stone-900">Feeding</a>
+                    <a href="#health" class="nav-link text-stone-600 hover:text-stone-900">Health</a>
+                    <a href="#socialization" class="nav-link text-stone-600 hover:text-stone-900">Socialization</a>
+                    <a href="#mistakes" class="nav-link text-stone-600 hover:text-stone-900">Common Mistakes</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-6 bg-gradient-to-b from-amber-50 to-stone-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-6xl font-bold text-stone-800 mb-6 fade-in visible">Welcome to Puppy Parenthood</h2>
+            <p class="text-xl text-stone-600 max-w-2xl mx-auto fade-in visible" style="transition-delay: 0.2s;">You're not just training a dog—you're raising a companion and building a lifelong connection. Here's everything you need to know to start off on the right paw.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Puppy Prep -->
+        <section id="prep" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-bold text-stone-800 mb-6">Before Your Puppy Arrives</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p class="stagger-item"><strong class="text-stone-900">Research your breed.</strong> Understanding your dog's natural tendencies will help you work with them, not against them. Every breed has different energy levels, social needs, and quirks.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.1s;"><strong class="text-stone-900">Puppy-proof your space.</strong> Remove cords, toxic plants, and small objects. Use baby gates to create a contained area—and make it smaller than you think. A limited space prevents accidents and makes potty training much easier.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.2s;"><strong class="text-stone-900">Schedule that first vet visit.</strong> Book an appointment within the first week of bringing your puppy home. This establishes baseline health and gets you started with vaccines and preventive care.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.3s;"><strong class="text-stone-900">Remember the mindset.</strong> You're not training your dog—you're raising them. Focus on building connection and trust, and everything else will follow.</p>
+                    </div>
+                </div>
+                <div class="slide-in-right image-container bg-amber-100 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="Seb-1.jpg" alt="Preparing for your puppy" class="w-full h-80 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Bringing Home -->
+        <section id="home" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 slide-in-left image-container bg-amber-100 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="Seb-2.jpg" alt="Bringing puppy home" class="w-full h-80 object-cover">
+                </div>
+                <div class="order-1 md:order-2 slide-in-right">
+                    <h3 class="text-3xl font-bold text-stone-800 mb-6">The First Day Home</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p class="stagger-item"><strong class="text-stone-900">Bring something familiar.</strong> If possible, take a towel and rub it on the puppy's parents or littermates. The familiar scent can help reduce separation anxiety during those first few nights.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.1s;"><strong class="text-stone-900">Be prepared for car sickness.</strong> Puppies are often prone to motion sickness. Keep towels handy and don't panic if there's a mess—it's completely normal.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.2s;"><strong class="text-stone-900">Take it slow.</strong> Your puppy is experiencing a huge change. Let them explore at their own pace and don't overwhelm them with too many new people or experiences right away.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feeding -->
+        <section id="feeding" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-bold text-stone-800 mb-6">Feeding Your Puppy</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p class="stagger-item"><strong class="text-stone-900">Start with what they know.</strong> Ask the breeder about feeding times and the current food brand. Keep the routine consistent at first, then gradually transition if your vet recommends something different.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.1s;"><strong class="text-stone-900">Know what's off-limits.</strong> These foods are toxic to dogs and should never be given: chocolate, grapes and raisins, onions, garlic, chives, macadamia nuts, alcohol, caffeine, avocado, xylitol (artificial sweetener), cooked bones, and fatty table scraps.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.2s;"><strong class="text-stone-900">Keep it simple.</strong> Stick to quality puppy food and healthy treats. Your dog doesn't need fancy meals—consistency and proper nutrition matter most.</p>
+                    </div>
+                </div>
+                <div class="slide-in-right image-container bg-amber-100 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="Seb-3.jpg" alt="Feeding time" class="w-full h-80 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Health & Housebreaking -->
+        <section id="health" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 slide-in-left image-container bg-amber-100 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="Seb-4.jpg" alt="Healthy puppy" class="w-full h-80 object-cover">
+                </div>
+                <div class="order-1 md:order-2 slide-in-right">
+                    <h3 class="text-3xl font-bold text-stone-800 mb-6">Health & Housebreaking</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p class="stagger-item"><strong class="text-stone-900">The potty training routine.</strong> Take your puppy outside every 30 minutes to an hour, always using the same door and the same outdoor spot. Use a verbal cue like "go potty" when they're in position, then praise enthusiastically and offer a treat the moment they finish.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.1s;"><strong class="text-stone-900">Never leave them unsupervised.</strong> During training, watch constantly or confine your puppy. If you'll be gone longer than they can hold it, set up a small pen around their crate with a designated toilet mat just outside.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.2s;"><strong class="text-stone-900">Provide appropriate toys.</strong> Puppies explore the world with their mouths—it's completely normal. Give them plenty of safe toys to chew on so they learn what's theirs.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.3s;"><strong class="text-stone-900">Don't punish accidents.</strong> Dogs won't understand what they did wrong. Simply clean up and stay consistent with the routine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Socialization -->
+        <section id="socialization" class="mb-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-bold text-stone-800 mb-6">Socialization & Training</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p class="stagger-item"><strong class="text-stone-900">Start early with positive experiences.</strong> Introduce your puppy to different people, animals, sounds, and environments early on. This helps curb fear and aggression later in life.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.1s;"><strong class="text-stone-900">Use positive reinforcement.</strong> Mark the exact moment your puppy does something right with a clicker or enthusiastic "yes!", then immediately reward with a treat. This clear communication helps them learn quickly.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.2s;"><strong class="text-stone-900">Keep sessions short and fun.</strong> Five to ten minutes is plenty for a puppy's attention span. End on a positive note and they'll be eager for the next session.</p>
+                        
+                        <p class="stagger-item" style="transition-delay: 0.3s;"><strong class="text-stone-900">Be consistent.</strong> Everyone in the family should use the same cues and rewards. Mixed signals confuse puppies and slow down learning.</p>
+                    </div>
+                </div>
+                <div class="slide-in-right image-container bg-amber-100 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="Seb-5.jpg" alt="Socializing puppy" class="w-full h-80 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section id="mistakes" class="mb-24">
+            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-stone-200 scale-in">
+                <h3 class="text-3xl font-bold text-stone-800 mb-6">Common Mistakes to Avoid</h3>
+                <div class="space-y-6 text-stone-700">
+                    <div class="stagger-item">
+                        <h4 class="font-semibold text-stone-900 mb-2">Giving too much freedom too soon</h4>
+                        <p>A large space can be overwhelming and makes accidents more likely. Start small and gradually expand their territory as they prove they can handle it.</p>
+                    </div>
+                    
+                    <div class="stagger-item" style="transition-delay: 0.1s;">
+                        <h4 class="font-semibold text-stone-900 mb-2">Inconsistent rules</h4>
+                        <p>If your puppy is allowed on the couch sometimes but not others, they'll be confused. Decide on house rules as a family and stick to them from day one.</p>
+                    </div>
+                    
+                    <div class="stagger-item" style="transition-delay: 0.2s;">
+                        <h4 class="font-semibold text-stone-900 mb-2">Skipping socialization</h4>
+                        <p>The critical socialization window closes around 16 weeks. Early positive experiences shape your dog's entire temperament. Don't wait—start gently introducing them to the world right away.</p>
+                    </div>
+                    
+                    <div class="stagger-item" style="transition-delay: 0.3s;">
+                        <h4 class="font-semibold text-stone-900 mb-2">Treating them like a small human</h4>
+                        <p>Dogs have different needs, communication styles, and ways of understanding the world. Learn to speak their language rather than expecting them to speak yours.</p>
+                    </div>
+                    
+                    <div class="stagger-item" style="transition-delay: 0.4s;">
+                        <h4 class="font-semibold text-stone-900 mb-2">Forgetting it's a marathon, not a sprint</h4>
+                        <p>Puppy raising takes time and patience. Some days will be harder than others. That's completely normal. Focus on small wins and celebrate progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="mt-16 scale-in">
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-stone-200">
+                <h3 class="text-2xl font-bold text-stone-800 mb-4">Resources</h3>
+                <div class="space-y-2 text-sm text-stone-600">
+                    <p class="stagger-item"><a href="https://vcahospitals.com/know-your-pet/puppy-behavior-and-training---socialization-and-fear-prevention" class="text-amber-700 hover:text-amber-900 underline" target="_blank">VCA Animal Hospitals - Puppy Socialization and Fear Prevention</a></p>
+                    <p class="stagger-item" style="transition-delay: 0.05s;"><a href="https://www.akc.org/expert-advice/health/puppys-first-vet-visit/" class="text-amber-700 hover:text-amber-900 underline" target="_blank">American Kennel Club - Puppy's First Vet Visit</a></p>
+                    <p class="stagger-item" style="transition-delay: 0.1s;"><a href="https://vet.osu.edu/vmc/companion/owner-education/behavior-guide-your-new-puppy" class="text-amber-700 hover:text-amber-900 underline" target="_blank">Ohio State University - Behavior Guide for Your New Puppy</a></p>
+                    <p class="stagger-item" style="transition-delay: 0.15s;"><a href="https://avsab.org/wp-content/uploads/2018/03/Puppy_Socialization_Position_Statement_Download_-_10-3-14.pdf" class="text-amber-700 hover:text-amber-900 underline" target="_blank">American Veterinary Society of Animal Behavior - Puppy Socialization</a></p>
+                    <p class="stagger-item" style="transition-delay: 0.2s;"><a href="https://www.battersea.org.uk/pet-advice/dog-care-advice/toxic-food-dogs" class="text-amber-700 hover:text-amber-900 underline" target="_blank">Battersea Dogs & Cats Home - Toxic Foods for Dogs</a></p>
+                    <p class="stagger-item" style="transition-delay: 0.25s;"><a href="https://myloyalhound.com/first-48-hours-with-your-puppy/" class="text-amber-700 hover:text-amber-900 underline" target="_blank">My Loyal Hound - The First 48 Hours With Your Puppy</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 text-stone-300 py-12 px-6 mt-24">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg mb-4">Congratulations on your new adventure!</p>
+            <p class="text-sm text-stone-400">Made with love for new puppy parents</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Handle staggered animations for children
+                    const staggerItems = entry.target.querySelectorAll('.stagger-item');
+                    staggerItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Also observe sections that contain stagger items
+        document.querySelectorAll('section').forEach(section => {
+            if (section.querySelectorAll('.stagger-item').length > 0) {
+                observer.observe(section);
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
